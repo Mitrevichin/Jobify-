@@ -2,10 +2,9 @@ import { Outlet } from 'react-router-dom';
 
 function HomeLayout() {
   return (
-    <div>
-      <nav>Navbar</nav>
+    <>
       <Outlet />
-    </div>
+    </>
   );
 }
 
