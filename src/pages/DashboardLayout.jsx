@@ -2,17 +2,24 @@ import { Outlet } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/Dashboard';
 import { BigSidebar, Navbar, SmallSidebar } from '../components';
 import { createContext, useContext, useState } from 'react';
+import { checkdefaultTheme } from '../App';
 
 const DashboardContext = createContext();
 
 function DashboardLayout() {
   // temporary
   const user = { name: 'John' };
+
   const [showSidebar, setShowSideBar] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(checkdefaultTheme());
 
   function toggleDarkTheme() {
-    console.log('Toggled Dark Theme');
+    // Using this way because this variable is gonna be used several times
+    const newDarkTheme = !isDarkTheme;
+    setIsDarkTheme(newDarkTheme);
+
+    document.body.classList.toggle('dark-theme', newDarkTheme);
+    localStorage.setItem('darkTheme', newDarkTheme);
   }
 
   function toggleSidebar() {

@@ -13,6 +13,14 @@ import {
   Admin,
 } from './pages';
 
+export const checkdefaultTheme = () => {
+  const isDarkTheme = localStorage.getItem('darkTheme') === 'true';
+  document.body.classList.toggle('dark-theme', isDarkTheme);
+  return isDarkTheme;
+};
+
+checkdefaultTheme();
+
 const router = createBrowserRouter([
   {
     path: '/',
