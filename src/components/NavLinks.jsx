@@ -2,7 +2,7 @@ import { useDashboardContext } from '../pages/DashboardLayout';
 import links from '../utils/links';
 import { NavLink } from 'react-router-dom';
 
-function NavLinks() {
+function NavLinks({ isBigSidebar }) {
   const { toggleSidebar, user } = useDashboardContext();
 
   return (
@@ -14,7 +14,8 @@ function NavLinks() {
             to={path}
             key={text}
             className='nav-link'
-            onClick={toggleSidebar}
+            // Null here means when the button is clicked nothing happens
+            onClick={isBigSidebar ? null : toggleSidebar}
             end
           >
             <span className='icon'>{icon}</span>

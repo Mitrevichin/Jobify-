@@ -13,7 +13,7 @@ function Login() {
         <button type='submit' className='btn btn-block'>
           Submit
         </button>
-        <button type='burron' className='btn btn-block'>
+        <button type='button' className='btn btn-block'>
           Explore the App
         </button>
         <p>
